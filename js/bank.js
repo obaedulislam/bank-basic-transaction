@@ -1,10 +1,23 @@
 // Handel Deposit event handler
-
-document.getElementById('deposit-btn').addEventListener('click', function(e){
-  //Get the amount deposited
+function getInputValue(){
   const depositInput = document.getElementById('deposit-input');
   const newDepositText = depositInput.value;
   const newDepositAmount = parseFloat(newDepositText);
+
+    //Clear Deposit Input
+  depositInput.value = "";
+
+  return newDepositAmount;
+
+
+}
+document.getElementById('deposit-btn').addEventListener('click', function(e){
+  //Get the amount deposited
+  // const depositInput = document.getElementById('deposit-input');
+  // const newDepositText = depositInput.value;
+  // const newDepositAmount = parseFloat(newDepositText);
+
+  const newDepositAmount = getInputValue();
   
   //Updated Balance Total
   const depositTotal = document.getElementById('deposit-total');
@@ -25,8 +38,7 @@ document.getElementById('deposit-btn').addEventListener('click', function(e){
   balanceTotal.innerText = updatedBalance;
 
 
-  //Clear Deposit Input
-  depositInput.value = "";
+
 })
 
 
